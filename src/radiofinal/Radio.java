@@ -12,11 +12,9 @@
  * and open the template in the editor.
  */
 
-package radiofinal;
+//package radiofinal;
 
 import javax.swing.JOptionPane;
-
-
 
 /**
  *

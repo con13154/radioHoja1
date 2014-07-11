@@ -5,10 +5,9 @@
  * RadioSony.java
  * 
  */
-package radiofinal;
+//package radiofinal;
 
 import javax.swing.JOptionPane;
-
 
 /**
  *
