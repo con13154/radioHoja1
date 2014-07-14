@@ -1,24 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Algoritmos y Estructura de Datos
+ * Hoja de trabajo 1
+ * Isa Contreras 13154 / Luis Orellana 13/ Erick de Mata 13
+ * Radiofinal.java
+ * Clase principal del proyecto (main)
  */
-
 package radiofinal;
 
-/**
- *
- * @author Isa
- */
 public class Radiofinal {
 
-    /**
-     * @param args the command line arguments
-     */
      public static void main(String[] args){
         RadioGUI ig = new RadioGUI();
         ig.setVisible(true);
-    }   // TODO code application logic here
+    }   
     }
     
 
