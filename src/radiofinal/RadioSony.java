@@ -5,7 +5,7 @@
  * RadioSony.java
  * 
  */
-//package radiofinal;
+package radiofinal;
 
 import javax.swing.JOptionPane;
 
@@ -14,20 +14,102 @@ import javax.swing.JOptionPane;
  * @author E. de Mata
  */
 public class RadioSony implements Radio{
-    private double contadorAm;
-    private double contadorFm;
-    private String frecuencia;
-    private double radioG;
-    private Double[] lista_radios = new Double[] {0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
-
-    public RadioSony(double contadorAm, double contadorFm) {
-        this.contadorAm = contadorAm;
-        this.contadorFm = contadorFm;
-    }
+    private boolean onOff;
+    private double estacion;
+    private boolean frecuencia;
+   // private double radioG;
+    private String[] listaFav;
 
     public RadioSony() {
+        onOff=false;
+        frecuencia=true;
+        estacion=1000;
     }
 
+   public void encendidoApagado(){
+           onOff=!onOff;
+   }
+    
+   public void cambiarFrecuencia(){
+       if (frecuencia){
+           frecuencia=!frecuencia;
+           estacion=92.3;
+       }
+       else {
+           frecuencia=!frecuencia;
+           estacion=1000;
+       }
+   }
+   
+   public void guardarEstacion(double estacion, int boton){
+       listaFav[boton] = Double.toString(estacion);
+   }
+    
+   public void cambiarEstacion(boolean masMenos){
+       if (masMenos){
+           if(frecuencia){
+               if(estacion<1610){
+                   estacion=estacion+10;
+                             }      
+               else{ 
+                   estacion = 530;
+               }
+               
+           }
+           else {
+               if(estacion<107.9){
+                   estacion=estacion+0.2;
+                             }      
+               else{ 
+                   estacion = 87.9;
+               }
+           }
+           
+       }
+       else {
+            if(frecuencia){
+               if(estacion>530){
+                   estacion=estacion-10;
+                             }      
+               else{ 
+                   estacion = 1610;
+               }
+               
+           }
+           else {
+               if(estacion>87.9){
+                   estacion=estacion-0.2;
+                             }      
+               else{ 
+                   estacion = 107.9;
+               }
+           }
+           
+       }}
+       
+       public String[] getEstacionesFav(){
+           return listaFav;
+       }
+       
+       public boolean getEstado(){
+       return onOff; 
+       }
+       public void setEstado(boolean onOff){
+           this.onOff = onOff;
+       }
+       public boolean getFrecuencia(){
+           return frecuencia;
+       }
+       public void setFrecuencia (boolean frecuencia){
+           this.frecuencia = frecuencia;
+       }
+       public double getEstacion(){
+           return estacion;
+       }
+       public void setEstacion(double estacion){
+           this.estacion=estacion;
+       }
+/*  
     public double getContadorAm() {
         return contadorAm;
     }
@@ -106,5 +188,6 @@ public class RadioSony implements Radio{
     public double sacar(int boton){
         radioG = Double.parseDouble(lista_radios[boton].toString());
         return radioG;
-    }
+    }*/
 }
+    
