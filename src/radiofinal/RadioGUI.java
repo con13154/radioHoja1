@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-//package radiofinal;
+package radiofinal;
 
 import javax.swing.JOptionPane;
 
@@ -19,31 +19,13 @@ public class RadioGUI extends javax.swing.JFrame {
     private boolean frecuencia;
     private double emisora;
     private int numBoton;
-    private double mostrarEmisora;
+    private String[] listaFav;
+    
     /**
      * Creates new form RadioGUI
      */
     public RadioGUI() {
         initComponents();
-        jbEncender.setEnabled(true);
-        jbApagar.setEnabled(false);
-        jb1.setEnabled(false);
-        jb2.setEnabled(false);
-        jb3.setEnabled(false);
-        jb4.setEnabled(false);
-        jb5.setEnabled(false);
-        jb6.setEnabled(false);
-        jb7.setEnabled(false);
-        jb8.setEnabled(false);
-        jb9.setEnabled(false);
-        jb10.setEnabled(false);
-        jb11.setEnabled(false);
-        jb12.setEnabled(false);
-        jbAm.setEnabled(false);
-        jbFm.setEnabled(false);
-        jbAvanzar.setEnabled(false);
-        jbRetroceder.setEnabled(false);
-        jbGuardar.setEnabled(false);
         radio = new RadioSony();
     }
 
@@ -56,8 +38,6 @@ public class RadioGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jbEncender = new javax.swing.JButton();
-        jbApagar = new javax.swing.JButton();
         jb1 = new javax.swing.JButton();
         jb2 = new javax.swing.JButton();
         jb3 = new javax.swing.JButton();
@@ -73,27 +53,13 @@ public class RadioGUI extends javax.swing.JFrame {
         lbEmisora = new javax.swing.JLabel();
         lbNumEmisora = new javax.swing.JLabel();
         lbFrecuencia = new javax.swing.JLabel();
-        jbAm = new javax.swing.JButton();
-        jbFm = new javax.swing.JButton();
         jbAvanzar = new javax.swing.JButton();
         jbRetroceder = new javax.swing.JButton();
         jbGuardar = new javax.swing.JButton();
+        jbOnoff = new javax.swing.JButton();
+        jbAmfm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jbEncender.setText("Encender");
-        jbEncender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbEncenderActionPerformed(evt);
-            }
-        });
-
-        jbApagar.setText("Apagar");
-        jbApagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbApagarActionPerformed(evt);
-            }
-        });
 
         jb1.setText("1");
         jb1.addActionListener(new java.awt.event.ActionListener() {
@@ -185,20 +151,6 @@ public class RadioGUI extends javax.swing.JFrame {
 
         lbFrecuencia.setText("Frecuencia");
 
-        jbAm.setText("AM");
-        jbAm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAmActionPerformed(evt);
-            }
-        });
-
-        jbFm.setText("FM");
-        jbFm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbFmActionPerformed(evt);
-            }
-        });
-
         jbAvanzar.setText("Avanzar");
         jbAvanzar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,6 +172,20 @@ public class RadioGUI extends javax.swing.JFrame {
             }
         });
 
+        jbOnoff.setText("ON/OFF");
+        jbOnoff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbOnoffActionPerformed(evt);
+            }
+        });
+
+        jbAmfm.setText("AM/FM");
+        jbAmfm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAmfmActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -229,11 +195,6 @@ public class RadioGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(jbEncender)
-                                .addGap(18, 18, 18)
-                                .addComponent(jbApagar))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jb6)
@@ -260,34 +221,33 @@ public class RadioGUI extends javax.swing.JFrame {
                                 .addComponent(jb11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jb12))
+                            .addComponent(jbOnoff)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(55, 55, 55)
+                                .addGap(116, 116, 116)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lbNumEmisora, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbEmisora))
-                                .addGap(45, 45, 45)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jbAm)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jbFm))
-                                    .addComponent(lbFrecuencia)
-                                    .addComponent(jbGuardar)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jbAvanzar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbRetroceder)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(45, 45, 45))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbRetroceder)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jbAvanzar)
+                                .addGap(29, 29, 29)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbFrecuencia)
+                            .addComponent(jbGuardar)
+                            .addComponent(jbAmfm))))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbEncender)
-                    .addComponent(jbApagar))
-                .addGap(18, 18, 18)
+                .addContainerGap()
+                .addComponent(jbOnoff)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb1)
                     .addComponent(jb2)
@@ -312,23 +272,20 @@ public class RadioGUI extends javax.swing.JFrame {
                     .addComponent(lbFrecuencia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbAm)
-                    .addComponent(jbFm)
-                    .addComponent(lbEmisora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbEmisora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbAmfm))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbAvanzar)
-                    .addComponent(jbRetroceder)
-                    .addComponent(jbGuardar))
+                    .addComponent(jbGuardar)
+                    .addComponent(jbRetroceder))
                 .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jbApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbApagarActionPerformed
-        jbEncender.setVisible(true);
-        jbApagar.setEnabled(false);
+    private void bloquearGUI(){
+        
         jb1.setEnabled(false);
         jb2.setEnabled(false);
         jb3.setEnabled(false);
@@ -341,16 +298,12 @@ public class RadioGUI extends javax.swing.JFrame {
         jb10.setEnabled(false);
         jb11.setEnabled(false);
         jb12.setEnabled(false);
-        jbAm.setEnabled(false);
-        jbFm.setEnabled(false);
         jbAvanzar.setEnabled(false);
         jbRetroceder.setEnabled(false);
         jbGuardar.setEnabled(false);
-    }//GEN-LAST:event_jbApagarActionPerformed
-
-    private void jbEncenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEncenderActionPerformed
-        // TODO add your handling code here:
-        jbApagar.setEnabled(true);
+        jbAmfm.setEnabled(false);
+}
+        private void desbloquearGUI(){
         jb1.setEnabled(true);
         jb2.setEnabled(true);
         jb3.setEnabled(true);
@@ -363,127 +316,135 @@ public class RadioGUI extends javax.swing.JFrame {
         jb10.setEnabled(true);
         jb11.setEnabled(true);
         jb12.setEnabled(true);
-        jbAm.setEnabled(true);
-        jbFm.setEnabled(true);
         jbAvanzar.setEnabled(true);
         jbRetroceder.setEnabled(true);
         jbGuardar.setEnabled(true);
-    }//GEN-LAST:event_jbEncenderActionPerformed
-
-    private void jbAmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAmActionPerformed
-        // TODO add your handling code here:
-        lbNumEmisora.setText("530");
-        frecuencia = true;
-    }//GEN-LAST:event_jbAmActionPerformed
-
-    private void jbFmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFmActionPerformed
-        // TODO add your handling code here:
-        lbNumEmisora.setText("87.9");
-        frecuencia = false;
-    }//GEN-LAST:event_jbFmActionPerformed
-
+        jbAmfm.setEnabled(true);
+        }
     private void jbAvanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAvanzarActionPerformed
-        // TODO add your handling code here:
-        //lbNumEmisora.setText(Double.toString(radio.avanzar(Double.parseDouble(lbNumEmisora.getText()))));
-        lbNumEmisora.setText(Double.toString(radio.subirEstacion(frecuencia,Double.parseDouble(lbNumEmisora.getText()))));
+        radio.cambiarEstacion(true);
+        lbEmisora.setText(Double.toString(radio.getEstacion()));
     }//GEN-LAST:event_jbAvanzarActionPerformed
 
     private void jbRetrocederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRetrocederActionPerformed
-        // TODO add your handling code here:
-        //lbNumEmisora.setText(Double.toString(radio.retroceder()));
-        lbNumEmisora.setText(Double.toString(radio.bajarEstacion(frecuencia,Double.parseDouble(lbNumEmisora.getText()))));
+        radio.cambiarEstacion(false);
+        lbEmisora.setText(Double.toString(radio.getEstacion()));
     }//GEN-LAST:event_jbRetrocederActionPerformed
 
     private void jb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb1ActionPerformed
-        numBoton = Integer.parseInt(jb1.getText());
-        mostrarEmisora = radio.sacar(numBoton);
-        lbNumEmisora.setText(Double.toString(mostrarEmisora));
-        
+        //numBoton = Integer.parseInt(jb1.getText());
+        listaFav = radio.getEstacionesFav();
+        lbNumEmisora.setText(listaFav[0]);
+        emisora = Double.parseDouble(listaFav[0]);
+        radio.setEstacion(emisora);
     }//GEN-LAST:event_jb1ActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // TODO add your handling code here:
-        emisora = Double.parseDouble(lbNumEmisora.getText());
+       // emisora = Double.parseDouble(lbNumEmisora.getText());
         String opcion = JOptionPane.showInputDialog("Ingrese el numero de boton en el cual desea guardar la estación: "); 
-        radio.guardar(Integer.parseInt(opcion), emisora);
+        radio.guardarEstacion(radio.getEstacion() ,Integer.parseInt(opcion));
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jb2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb2ActionPerformed
         // TODO add your handling code here:
-        numBoton = Integer.parseInt(jb2.getText());
-        mostrarEmisora = radio.sacar(numBoton);
-        lbNumEmisora.setText(Double.toString(mostrarEmisora));
+         listaFav = radio.getEstacionesFav();
+        lbNumEmisora.setText(listaFav[1]);
+        emisora = Double.parseDouble(listaFav[1]);
+        radio.setEstacion(emisora);
     }//GEN-LAST:event_jb2ActionPerformed
 
     private void jb3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb3ActionPerformed
         // TODO add your handling code here:
-        numBoton = Integer.parseInt(jb3.getText());
-        mostrarEmisora = radio.sacar(numBoton);
-        lbNumEmisora.setText(Double.toString(mostrarEmisora));
+         listaFav = radio.getEstacionesFav();
+        lbNumEmisora.setText(listaFav[2]);
+        emisora = Double.parseDouble(listaFav[2]);
+        radio.setEstacion(emisora);
     }//GEN-LAST:event_jb3ActionPerformed
 
     private void jb4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb4ActionPerformed
-        // TODO add your handling code here:
-        numBoton = Integer.parseInt(jb4.getText());
-        mostrarEmisora = radio.sacar(numBoton);
-        lbNumEmisora.setText(Double.toString(mostrarEmisora));
+         listaFav = radio.getEstacionesFav();
+        lbNumEmisora.setText(listaFav[3]);
+        emisora = Double.parseDouble(listaFav[3]);
+        radio.setEstacion(emisora);
     }//GEN-LAST:event_jb4ActionPerformed
 
     private void jb5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb5ActionPerformed
-        // TODO add your handling code here:
-        numBoton = Integer.parseInt(jb5.getText());
-        mostrarEmisora = radio.sacar(numBoton);
-        lbNumEmisora.setText(Double.toString(mostrarEmisora));
+        listaFav = radio.getEstacionesFav();
+        lbNumEmisora.setText(listaFav[4]);
+        emisora = Double.parseDouble(listaFav[4]);
+        radio.setEstacion(emisora);
     }//GEN-LAST:event_jb5ActionPerformed
 
     private void jb6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb6ActionPerformed
-        // TODO add your handling code here:
-        numBoton = Integer.parseInt(jb6.getText());
-        mostrarEmisora = radio.sacar(numBoton);
-        lbNumEmisora.setText(Double.toString(mostrarEmisora));
+        listaFav = radio.getEstacionesFav();
+        lbNumEmisora.setText(listaFav[5]);
+        emisora = Double.parseDouble(listaFav[5]);
+        radio.setEstacion(emisora);
     }//GEN-LAST:event_jb6ActionPerformed
 
     private void jb7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb7ActionPerformed
-        // TODO add your handling code here:
-        numBoton = Integer.parseInt(jb7.getText());
-        mostrarEmisora = radio.sacar(numBoton);
-        lbNumEmisora.setText(Double.toString(mostrarEmisora));
+         listaFav = radio.getEstacionesFav();
+        lbNumEmisora.setText(listaFav[6]);
+        emisora = Double.parseDouble(listaFav[6]);
+        radio.setEstacion(emisora);
     }//GEN-LAST:event_jb7ActionPerformed
 
     private void jb8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb8ActionPerformed
-        // TODO add your handling code here:
-        numBoton = Integer.parseInt(jb8.getText());
-        mostrarEmisora = radio.sacar(numBoton);
-        lbNumEmisora.setText(Double.toString(mostrarEmisora));
+        listaFav = radio.getEstacionesFav();
+        lbNumEmisora.setText(listaFav[7]);
+        emisora = Double.parseDouble(listaFav[7]);
+        radio.setEstacion(emisora);
     }//GEN-LAST:event_jb8ActionPerformed
 
     private void jb9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb9ActionPerformed
-        // TODO add your handling code here:
-        numBoton = Integer.parseInt(jb9.getText());
-        mostrarEmisora = radio.sacar(numBoton);
-        lbNumEmisora.setText(Double.toString(mostrarEmisora));
+         listaFav = radio.getEstacionesFav();
+        lbNumEmisora.setText(listaFav[8]);
+        emisora = Double.parseDouble(listaFav[8]);
+        radio.setEstacion(emisora);
     }//GEN-LAST:event_jb9ActionPerformed
 
     private void jb10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb10ActionPerformed
-        // TODO add your handling code here:
-        numBoton = Integer.parseInt(jb10.getText());
-        mostrarEmisora = radio.sacar(numBoton);
-        lbNumEmisora.setText(Double.toString(mostrarEmisora));
+         listaFav = radio.getEstacionesFav();
+        lbNumEmisora.setText(listaFav[9]);
+        emisora = Double.parseDouble(listaFav[9]);
+        radio.setEstacion(emisora);
     }//GEN-LAST:event_jb10ActionPerformed
 
     private void jb11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb11ActionPerformed
-        // TODO add your handling code here:
-        numBoton = Integer.parseInt(jb11.getText());
-        mostrarEmisora = radio.sacar(numBoton);
-        lbNumEmisora.setText(Double.toString(mostrarEmisora));
+       listaFav = radio.getEstacionesFav();
+        lbNumEmisora.setText(listaFav[10]);
+        emisora = Double.parseDouble(listaFav[10]);
+        radio.setEstacion(emisora);
     }//GEN-LAST:event_jb11ActionPerformed
 
     private void jb12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb12ActionPerformed
-        // TODO add your handling code here:
-        numBoton = Integer.parseInt(jb12.getText());
-        mostrarEmisora = radio.sacar(numBoton);
-        lbNumEmisora.setText(Double.toString(mostrarEmisora));
+        listaFav = radio.getEstacionesFav();
+        lbNumEmisora.setText(listaFav[11]);
+        emisora = Double.parseDouble(listaFav[11]);
+        radio.setEstacion(emisora);
     }//GEN-LAST:event_jb12ActionPerformed
+
+    private void jbOnoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOnoffActionPerformed
+            radio.encendidoApagado();
+           if (radio.getEstado()){
+               desbloquearGUI();
+           }
+            else {
+                bloquearGUI();
+                       
+           }
+    }//GEN-LAST:event_jbOnoffActionPerformed
+
+    private void jbAmfmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAmfmActionPerformed
+       radio.cambiarFrecuencia();
+       if (radio.getFrecuencia()) {
+           jbAmfm.setText("AM");
+       }
+       else {
+           jbAmfm.setText("FM");
+       }
+    }//GEN-LAST:event_jbAmfmActionPerformed
 
     /**
      * @param args the command line arguments
@@ -533,12 +494,10 @@ public class RadioGUI extends javax.swing.JFrame {
     private javax.swing.JButton jb7;
     private javax.swing.JButton jb8;
     private javax.swing.JButton jb9;
-    private javax.swing.JButton jbAm;
-    private javax.swing.JButton jbApagar;
+    private javax.swing.JButton jbAmfm;
     private javax.swing.JButton jbAvanzar;
-    private javax.swing.JButton jbEncender;
-    private javax.swing.JButton jbFm;
     private javax.swing.JButton jbGuardar;
+    private javax.swing.JButton jbOnoff;
     private javax.swing.JButton jbRetroceder;
     private javax.swing.JLabel lbEmisora;
     private javax.swing.JLabel lbFrecuencia;
