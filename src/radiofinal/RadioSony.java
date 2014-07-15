@@ -53,8 +53,7 @@ public class RadioSony implements Radio{
        else {
            frecuencia=!frecuencia;
            estacion=1000;
-       }
-   }
+       }   }
    //Método que utiliza como parámetros la estación que se encuentra actualmente y un boton para almacenarla como favorito
    public void guardarEstacion(double estacion, int boton){
        listaFav[boton] = Double.toString(estacion);
@@ -70,9 +69,7 @@ public class RadioSony implements Radio{
                else{ 
                    //Indica que al recorrer todas las estaciones regrese al inicio
                    estacion = 530;
-               }
-               
-           }
+               } }
            else {
                if(estacion<107.9){
                    estacion=estacion+0.2;
@@ -80,10 +77,7 @@ public class RadioSony implements Radio{
                else{ 
                     //Indica que al recorrer todas las estaciones regrese al inicio
                    estacion = 87.9;
-               }
-           }
-           
-       }
+               }}}
        else {
             if(frecuencia){
                 //Si masMenos (aumentar/disminuir) es false ambas frecuencias disminuirán
@@ -93,9 +87,7 @@ public class RadioSony implements Radio{
                else{ 
                    //Indica que al recorrer todas las estaciones regrese, se coloqué en la última para que la recorra nuevamente
                    estacion = 1610;
-               }
-               
-           }
+               }   }
            else {
                if(estacion>87.9){
                    estacion=estacion-0.2;
@@ -103,10 +95,7 @@ public class RadioSony implements Radio{
                else{ 
                    //Indica que al recorrer todas las estaciones regrese, se coloqué en la última para que la recorra nuevamente
                    estacion = 107.9;
-               }
-           }
-           
-       }}
+               } }}}
        //Metodo que nos permite obtener una estacion específica en la lista de estaciones favoritas 
        public String[] getEstacionesFav(){
            return listaFav;
