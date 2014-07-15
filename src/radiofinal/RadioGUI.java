@@ -1,7 +1,7 @@
 /**
  * Algoritmos y Estructura de Datos
  * Hoja de trabajo 1
- * Isa Contreras 13154 / Luis Orellana 13/ Erick de Mata 13
+ * Isa Contreras 13154 / Luis Orellana 13/ Erick de Mata 13648
  * RadioGUI.java
  * Clase en la que se crea el interfaz grafica y se mandan a llamar a los metodos del radio para que funcionen en conjunto
  */
