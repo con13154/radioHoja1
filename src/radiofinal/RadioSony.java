@@ -12,7 +12,7 @@ public class RadioSony implements Radio{
     private boolean onOff;
     private double estacion;
     private boolean frecuencia;
-    private String[] listaFav;
+    private String[] listaFav = {"0","0","0","0","0","0","0","0","0","0","0","0",};
 
     //Constructor
     public RadioSony() {

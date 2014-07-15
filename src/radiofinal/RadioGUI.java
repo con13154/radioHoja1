@@ -42,7 +42,6 @@ public class RadioGUI extends javax.swing.JFrame {
         jb11 = new javax.swing.JButton();
         jb12 = new javax.swing.JButton();
         lbEmisora = new javax.swing.JLabel();
-        lbNumEmisora = new javax.swing.JLabel();
         jbAvanzar = new javax.swing.JButton();
         jbRetroceder = new javax.swing.JButton();
         jbGuardar = new javax.swing.JButton();
@@ -150,8 +149,6 @@ public class RadioGUI extends javax.swing.JFrame {
         lbEmisora.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
         lbEmisora.setText("Emisora");
 
-        lbNumEmisora.setToolTipText("");
-
         jbAvanzar.setBackground(new java.awt.Color(153, 153, 153));
         jbAvanzar.setText("Avanzar");
         jbAvanzar.addActionListener(new java.awt.event.ActionListener() {
@@ -201,8 +198,6 @@ public class RadioGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jbRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbNumEmisora, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -267,11 +262,9 @@ public class RadioGUI extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(lbEmisora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbNumEmisora, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jbAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jbRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addComponent(jbAmfm, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -333,21 +326,21 @@ public class RadioGUI extends javax.swing.JFrame {
      //Obtiene el valor de la estacion favorita guardada en el boton, cambia el valor de la emisora para realizar los cambios desde allí
     private void jb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb1ActionPerformed
         listaFav = radio.getEstacionesFav();
-        lbNumEmisora.setText(listaFav[0]);
+        lbEmisora.setText(listaFav[0]);
         emisora = Double.parseDouble(listaFav[0]);
         radio.setEstacion(emisora);
     }//GEN-LAST:event_jb1ActionPerformed
     //Permite ingresar el numero de boton para guardar la estacion actual
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-       // emisora = Double.parseDouble(lbNumEmisora.getText());
+       // emisora = Double.parseDouble(lbEmisora.getText());
         String opcion = JOptionPane.showInputDialog("Ingrese el numero de boton en el cual desea guardar la estación: "); 
-        radio.guardarEstacion(radio.getEstacion() ,Integer.parseInt(opcion));
+        radio.guardarEstacion(radio.getEstacion() ,Integer.parseInt(opcion)-1);
     }//GEN-LAST:event_jbGuardarActionPerformed
      //Obtiene el valor de la estacion favorita guardada en el boton, cambia el valor de la emisora para realizar los cambios desde allí
     private void jb2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb2ActionPerformed
         // TODO add your handling code here:
          listaFav = radio.getEstacionesFav();
-        lbNumEmisora.setText(listaFav[1]);
+        lbEmisora.setText(listaFav[1]);
         emisora = Double.parseDouble(listaFav[1]);
         radio.setEstacion(emisora);
     }//GEN-LAST:event_jb2ActionPerformed
@@ -355,70 +348,70 @@ public class RadioGUI extends javax.swing.JFrame {
     private void jb3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb3ActionPerformed
         // TODO add your handling code here:
          listaFav = radio.getEstacionesFav();
-        lbNumEmisora.setText(listaFav[2]);
+        lbEmisora.setText(listaFav[2]);
         emisora = Double.parseDouble(listaFav[2]);
         radio.setEstacion(emisora);
     }//GEN-LAST:event_jb3ActionPerformed
      //Obtiene el valor de la estacion favorita guardada en el boton, cambia el valor de la emisora para realizar los cambios desde allí
     private void jb4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb4ActionPerformed
          listaFav = radio.getEstacionesFav();
-        lbNumEmisora.setText(listaFav[3]);
+        lbEmisora.setText(listaFav[3]);
         emisora = Double.parseDouble(listaFav[3]);
         radio.setEstacion(emisora);
     }//GEN-LAST:event_jb4ActionPerformed
      //Obtiene el valor de la estacion favorita guardada en el boton, cambia el valor de la emisora para realizar los cambios desde allí
     private void jb5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb5ActionPerformed
         listaFav = radio.getEstacionesFav();
-        lbNumEmisora.setText(listaFav[4]);
+        lbEmisora.setText(listaFav[4]);
         emisora = Double.parseDouble(listaFav[4]);
         radio.setEstacion(emisora);
     }//GEN-LAST:event_jb5ActionPerformed
      //Obtiene el valor de la estacion favorita guardada en el boton, cambia el valor de la emisora para realizar los cambios desde allí
     private void jb6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb6ActionPerformed
         listaFav = radio.getEstacionesFav();
-        lbNumEmisora.setText(listaFav[5]);
+        lbEmisora.setText(listaFav[5]);
         emisora = Double.parseDouble(listaFav[5]);
         radio.setEstacion(emisora);
     }//GEN-LAST:event_jb6ActionPerformed
      //Obtiene el valor de la estacion favorita guardada en el boton, cambia el valor de la emisora para realizar los cambios desde allí
     private void jb7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb7ActionPerformed
          listaFav = radio.getEstacionesFav();
-        lbNumEmisora.setText(listaFav[6]);
+        lbEmisora.setText(listaFav[6]);
         emisora = Double.parseDouble(listaFav[6]);
         radio.setEstacion(emisora);
     }//GEN-LAST:event_jb7ActionPerformed
      //Obtiene el valor de la estacion favorita guardada en el boton, cambia el valor de la emisora para realizar los cambios desde allí
     private void jb8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb8ActionPerformed
         listaFav = radio.getEstacionesFav();
-        lbNumEmisora.setText(listaFav[7]);
+        lbEmisora.setText(listaFav[7]);
         emisora = Double.parseDouble(listaFav[7]);
         radio.setEstacion(emisora);
     }//GEN-LAST:event_jb8ActionPerformed
      //Obtiene el valor de la estacion favorita guardada en el boton, cambia el valor de la emisora para realizar los cambios desde allí
     private void jb9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb9ActionPerformed
          listaFav = radio.getEstacionesFav();
-        lbNumEmisora.setText(listaFav[8]);
+        lbEmisora.setText(listaFav[8]);
         emisora = Double.parseDouble(listaFav[8]);
         radio.setEstacion(emisora);
     }//GEN-LAST:event_jb9ActionPerformed
      //Obtiene el valor de la estacion favorita guardada en el boton, cambia el valor de la emisora para realizar los cambios desde allí
     private void jb10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb10ActionPerformed
          listaFav = radio.getEstacionesFav();
-        lbNumEmisora.setText(listaFav[9]);
+        lbEmisora.setText(listaFav[9]);
         emisora = Double.parseDouble(listaFav[9]);
         radio.setEstacion(emisora);
     }//GEN-LAST:event_jb10ActionPerformed
      //Obtiene el valor de la estacion favorita guardada en el boton, cambia el valor de la emisora para realizar los cambios desde allí
     private void jb11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb11ActionPerformed
        listaFav = radio.getEstacionesFav();
-        lbNumEmisora.setText(listaFav[10]);
+        lbEmisora.setText(listaFav[10]);
         emisora = Double.parseDouble(listaFav[10]);
         radio.setEstacion(emisora);
     }//GEN-LAST:event_jb11ActionPerformed
     //Obtiene el valor de la estacion favorita guardada en el boton, cambia el valor de la emisora para realizar los cambios desde allí
     private void jb12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb12ActionPerformed
         listaFav = radio.getEstacionesFav();
-        lbNumEmisora.setText(listaFav[11]);
+        lbEmisora.setText(listaFav[11]);
         emisora = Double.parseDouble(listaFav[11]);
         radio.setEstacion(emisora);
     }//GEN-LAST:event_jb12ActionPerformed
@@ -505,6 +498,5 @@ public class RadioGUI extends javax.swing.JFrame {
     private javax.swing.JButton jbOnoff;
     private javax.swing.JButton jbRetroceder;
     private javax.swing.JLabel lbEmisora;
-    private javax.swing.JLabel lbNumEmisora;
     // End of variables declaration//GEN-END:variables
 }
